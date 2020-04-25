@@ -1,6 +1,7 @@
 version: "3"
 services:
   app:
+    container_name: theapp_workspace
     build:
       context: ./
       dockerfile: PHPAPACHE.Dockerfile
@@ -16,6 +17,9 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: ""
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_USER: theapp
+      MYSQL_PASSWORD: theapp
+      MYSQL_DATABASE: theapp
+      MYSQL_ROOT_PASSWORD: theapp
+      MYSQL_HOST: localhost
     restart: always
