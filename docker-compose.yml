@@ -1,0 +1,21 @@
+version: "3"
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: PHPAPACHE.Dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./src:/var/www/html
+  mysql:
+    build:
+      context: ./
+      dockerfile: MySQL.Dockerfile
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    restart: always
