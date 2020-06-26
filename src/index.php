@@ -1,3 +1,3 @@
 <?php
 
-echo "Im in docker. Edited";
+echo "Im in docker. Edited. yay!";
