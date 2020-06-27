@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
 isRunning=false
+workspaceId=$(docker-compose ps -q app)
+if [[ -n "$workspaceId" ]] && docker ps -q --no-trunc | grep -q "${workspaceId}"; then
+  isRunning=true
+fi
 
 start() {
   docker-compose up -d --force-recreate
@@ -11,6 +15,11 @@ stop() {
   echo "Removing containers"
   docker-compose down --remove-orphans
   isRunning=false
+}
+
+build() {
+  echo "Building..."
+  docker-compose build --force-rm
 }
 
 restart() {
