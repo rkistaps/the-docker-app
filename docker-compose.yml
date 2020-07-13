@@ -11,7 +11,7 @@ services:
     volumes:
       - ./src:/var/www/html
     networks:
-      - defaultapt-get install mysql-shell
+      - default
     depends_on:
       - db
   db:
