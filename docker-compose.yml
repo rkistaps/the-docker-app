@@ -10,16 +10,25 @@ services:
       - "443:443"
     volumes:
       - ./src:/var/www/html
-  mysql:
+    networks:
+      - defaultapt-get install mysql-shell
+    depends_on:
+      - db
+  db:
     build:
       context: ./
       dockerfile: ./docker-conf/MySQL.Dockerfile
     ports:
       - "3306:3306"
+    volumes:
+      - persistent:/var/lib/mysql
+    networks:
+      - default
     environment:
       MYSQL_USER: theapp
       MYSQL_PASSWORD: theapp
       MYSQL_DATABASE: theapp
       MYSQL_ROOT_PASSWORD: theapp
-      MYSQL_HOST: localhost
     restart: always
+volumes:
+  persistent:
