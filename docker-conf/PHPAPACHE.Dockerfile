@@ -5,6 +5,10 @@ RUN apt-get update
 RUN apt-get install nano
 RUN apt-get -y install vim
 
+RUN apt-get install libzip-dev -y
+RUN apt-get install zip -y
+RUN docker-php-ext-install zip
+
 # Install Git
 RUN apt-get install -y git
 
