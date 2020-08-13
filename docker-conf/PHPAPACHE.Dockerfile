@@ -5,6 +5,8 @@ RUN apt-get update
 RUN apt-get install nano
 RUN apt-get install vim -y
 
+RUN apt-get install screen -y
+
 RUN apt-get install libzip-dev -y
 RUN apt-get install zip -y
 RUN apt-get install default-mysql-client -y
