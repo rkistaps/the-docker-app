@@ -30,6 +30,5 @@ services:
       MYSQL_PASSWORD: theapp
       MYSQL_DATABASE: theapp
       MYSQL_ROOT_PASSWORD: theapp
-    restart: always
 volumes:
   persistent:
